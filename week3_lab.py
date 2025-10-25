@@ -18,11 +18,20 @@ for index in range(len(costs)):
 text = f"The total cost is: {total_cost:.2f}"
 print(text)
 """
+"""
 # code that prints a 5x5 square of asterisks (*)
 
 for index in range(5):
     print()
     for index in range(5):
+        print('*', end=' ')
+"""
+
+# code that prints a right-angled triangle of asterisks (*)
+
+for index in range (6):
+    print()
+    for j in range (index):
         print('*', end=' ')
 
 
