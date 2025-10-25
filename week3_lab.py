@@ -27,11 +27,31 @@ for index in range(5):
         print('*', end=' ')
 """
 
+"""
 # code that prints a right-angled triangle of asterisks (*)
 
 for index in range (6):
     print()
     for j in range (index):
         print('*', end=' ')
+"""
 
+#code fore quitting loop by user input
+
+user_input = ""
+
+while True:
+    print("---- calcualtor menu ----")
+    user_input = input("a - add, s - subtract, q - quit: ")
+    if user_input == "q":
+        print("quitting the program")
+        break
+    elif user_input == "a":
+        print("you chose addition")
+    elif user_input == "s":
+        print("you chose subtraction")
+    else:
+        print("invalid input, please try again")
+
+print("program ended")
 
