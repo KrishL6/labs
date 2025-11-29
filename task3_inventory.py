@@ -13,3 +13,22 @@ def load_inventory():
 
 result = load_inventory()
 print(result)
+
+def generate_report(result):
+
+    # gets the stock and prints the sum of all stock items
+    stock = sum(item['stock'] for item in result)
+    print(f"Total number of items in stock: {stock}")
+
+    # Find the most expensive item
+    most_expensive = max(result, key=lambda x: x['price'])
+    print(f"Most expensive item: {most_expensive['name']} at ${most_expensive['price']}")
+
+
+    # iterate through the inventory and print items that are out of stock
+    for index in range(len(result)):
+        item = result[index]
+        if item['stock'] == 0:
+            print(f"Item '{item['name']}' is out of stock.")
+
+generate_report(result)
