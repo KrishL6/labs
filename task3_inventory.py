@@ -11,9 +11,8 @@ def load_inventory():
     except FileNotFoundError:
         print("Error: The file 'inventory.json' was not found.")
 
-result = load_inventory()
-print(result)
 
+#function to generate report from inventory data
 def generate_report(result):
 
     # gets the stock and prints the sum of all stock items
@@ -31,4 +30,27 @@ def generate_report(result):
         if item['stock'] == 0:
             print(f"Item '{item['name']}' is out of stock.")
 
+
+# function to restock an item given its product_id and amount to restock
+def restock_item(result, product_id, amount):
+    try:
+        for item in result:
+          if item['id'] == product_id:
+             item['stock'] += amount
+             print(f"Restocked '{item['name']}'. New stock: {item['stock']}")
+    except:
+        print(f"Item with ID {product_id} not found.")
+
+
+# function to save the updated inventory back to the json file
+def save_inventory(result):
+    import json
+    with open('inventory.json', 'w') as file:
+        json.dump(result, file, indent=4)
+    print("Inventory saved to 'inventory.json'.")
+
+
+result = load_inventory()
 generate_report(result)
+restock_item(result, 102, 5) 
+save_inventory(result)
