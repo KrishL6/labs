@@ -45,9 +45,9 @@ def restock_item(result, product_id, amount):
 # function to save the updated inventory back to the json file
 def save_inventory(result):
     import json
-    with open('inventory.json', 'w') as file:
+    with open('updated_inventory.json', 'w') as file:
         json.dump(result, file, indent=4)
-    print("Inventory saved to 'inventory.json'.")
+    print("Inventory saved to 'updated_inventory.json'.")
 
 if __name__ == "__main__":
     result = load_inventory()
