@@ -49,8 +49,8 @@ def save_inventory(result):
         json.dump(result, file, indent=4)
     print("Inventory saved to 'inventory.json'.")
 
-
-result = load_inventory()
-generate_report(result)
-restock_item(result, 102, 5) 
-save_inventory(result)
+if __name__ == "__main__":
+    result = load_inventory()
+    generate_report(result)
+    restock_item(result, 102, 5) 
+    save_inventory(result)
